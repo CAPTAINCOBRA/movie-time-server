@@ -59,6 +59,8 @@ exports.getAllMovies = (req, res) => {
       });
     } else {
       res.setHeader("Access-Control-Allow-Origin", "*");
+      res.set("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Origin", "*");
       return res.status(200).json({
         movies,
       });
