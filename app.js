@@ -23,11 +23,20 @@ mongoose.connect(
   }
 );
 
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 // middleware that logs the request
 app.use((req, res, next) => {
   console.log(`${req.method} request for ${req.url} with body: ${req.body}`);
+  next();
+});
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   next();
 });
 
