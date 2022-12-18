@@ -23,7 +23,7 @@ mongoose.connect(
   }
 );
 
-app.use(cors());
+app.use(cors({ origin: true }));
 app.use(bodyParser.json());
 // middleware that logs the request
 app.use((req, res, next) => {
