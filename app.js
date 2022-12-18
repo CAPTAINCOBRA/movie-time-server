@@ -9,7 +9,7 @@ const express = require("express");
 const app = express();
 
 var corsOptions = {
-  origin: "*",
+  origin: ["https://movie-time-theta.vercel.app/"],
   optionsSuccessStatus: 200,
 };
 
