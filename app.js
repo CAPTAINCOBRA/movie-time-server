@@ -8,6 +8,14 @@ const movieRoutes = require("./routes/movie");
 const express = require("express");
 const app = express();
 
+var corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
+
+// app.use(cors({ origin: true }));
+app.use(cors(corsOptions));
+
 mongoose.connect(
   process.env.DB,
   {
@@ -23,7 +31,6 @@ mongoose.connect(
   }
 );
 
-app.use(cors({ origin: true }));
 app.use(bodyParser.json());
 // middleware that logs the request
 app.use((req, res, next) => {
